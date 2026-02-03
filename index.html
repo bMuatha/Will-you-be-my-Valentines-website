@@ -1,44 +1,63 @@
-<section class="valentine-box">
-  <h2>💖 Will You Be Muatha's My Valentine?</h2>
-  <form>
-    <label>
-      <input type="checkbox" id="valentineCheck">
-      Yes, of course! 🌹
-    </label>
-  </form>
-  <p id="responseMessage" style="display:none; color:#e63946; font-size:1.2em;">
-    Yay! You just made your mkamba the happiest person 💕
-  </p>
+<section class="valentine-check">
+  <h2>💖 Will You Be Muatha's Valentine?</h2>
+  <label>
+    <input type="checkbox" id="valentineBox">
+    Yes, of course! 🌹
+  </label>
 </section>
 
+<!-- Hidden popup -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span id="closePopup">&times;</span>
+    <img src="photo3.jpg" alt="Us Together" style="max-width:100%; border-radius:12px;">
+    <p>You are my forever Valentine 💕</p>
+  </div>
+</div>
+
 <script>
-  // Show a message when the checkbox is ticked
-  document.getElementById('valentineCheck').addEventListener('change', function() {
+  // Show popup when checkbox is ticked
+  document.getElementById('valentineBox').addEventListener('change', function() {
     if (this.checked) {
-      document.getElementById('responseMessage').style.display = 'block';
+      document.getElementById('popup').style.display = 'block';
     } else {
-      document.getElementById('responseMessage').style.display = 'none';
+      document.getElementById('popup').style.display = 'none';
     }
+  });
+
+  // Close popup when clicking the X
+  document.getElementById('closePopup').addEventListener('click', function() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('valentineBox').checked = false; // reset checkbox
   });
 </script>
 
 <style>
-  .valentine-box {
-    margin-top: 40px;
+  .popup {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+  }
+  .popup-content {
+    background: #fff;
+    margin: 10% auto;
     padding: 20px;
-    background: rgba(255, 182, 193, 0.3);
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   }
-  .valentine-box h2 {
-    color: #e63946;
+  .popup-content img {
+    margin-bottom: 15px;
   }
-  label {
-    font-size: 1.2em;
+  #closePopup {
+    float: right;
+    font-size: 1.5em;
     cursor: pointer;
-  }
-  input[type="checkbox"] {
-    transform: scale(1.5);
-    margin-right: 10px;
+    color: #e63946;
   }
 </style>
