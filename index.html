@@ -1,64 +1,172 @@
-<section class="valentine-check">
-  <h2>💖 Will You Be Muatha's Valentine?</h2>
-  <label>
-    <input type="checkbox" id="valentineBox">
-    Yes, of course! 🌹
-  </label>
-</section>
-
-<!-- Hidden popup -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span id="closePopup">&times;</span>
-    <img src="photo3.jpg.jpeg" alt="Us Together" style="max-width:100%; border-radius:12px;">
-    <p>You are my forever Valentine 💕</p>
-  </div>
-</div>
-
-<script>
-  // Show popup when checkbox is ticked
-  document.getElementById('valentineBox').addEventListener('change', function() {
-    if (this.checked) {
-      document.getElementById('popup').style.display = 'block';
-    } else {
-      document.getElementById('popup').style.display = 'none';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine's Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
     }
-  });
 
-  // Close popup when clicking the X
-  document.getElementById('closePopup').addEventListener('click', function() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('valentineBox').checked = false; // reset checkbox
-  });
-</script>
+    h1, h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #e63946;
+    }
 
-<style>
-  .popup {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6);
-  }
-  .popup-content {
-    background: #fff;
-    margin: 10% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-  .popup-content img {
-    margin-bottom: 15px;
-  }
-  #closePopup {
-    float: right;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #e63946;
-  }
-</style>
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      top: -50px;
+      font-size: 2em;
+      color: #e63946;
+      animation: float 10s infinite linear;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
 
+    /* Valentine checkbox section */
+    .valentine-check {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(255, 182, 193, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+    label {
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      transform: scale(1.5);
+      margin-right: 10px;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    .popup-content {
+      background: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    #closePopup {
+      float: right;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #e63946;
+    }
+
+    /* Letter */
+    .valentine-letter {
+      margin: 50px auto;
+      max-width: 600px;
+      background: #fff0f5;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-family: 'Dancing Script', cursive;
+      color: #4a4a4a;
+      line-height: 1.6;
+    }
+    .valentine-letter h2 {
+      text-align: center;
+      color: #e63946;
+      margin-bottom: 20px;
+    }
+    .letter-content {
+      font-size: 1.2em;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Valentine's Day 💖</h1>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:20%; animation-delay:0s;">💖</div>
+  <div class="heart" style="left:50%; animation-delay:2s;">💕</div>
+  <div class="heart" style="left:70%; animation-delay:4s;">💘</div>
+  <div class="heart" style="left:30%; animation-delay:6s;">💝</div>
+
+  <!-- Checkbox Valentine -->
+  <section class="valentine-check">
+    <h2>Will You Be Muatha's Valentine?</h2>
+    <label>
+      <input type="checkbox" id="valentineBox">
+      Yes, of course! 🌹
+    </label>
+  </section>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span id="closePopup">&times;</span>
+      <img src="photo1.jpg" alt="Us Together" style="max-width:100%; border-radius:12px;">
+      <p>You are my forever Valentine 💕</p>
+    </div>
+  </div>
+
+  <!-- Heartwarming Letter -->
+  <section class="valentine-letter">
+    <h2>💌 A Letter for You Machino💕 </h2>
+    <div class="letter-content">
+      <p>My Dearest,</p>
+      <p>
+        From the moment we met, you’ve brought joy, laughter, and warmth into my life.  
+        This Valentine’s month, I just want to remind you how much you mean to me.  
+        You are my best friend, my inspiration, and my forever Valentine.
+      </p>
+      <p>
+        Thank you for being you — for your kindness, your smile, and the way you make every day brighter.  
+        I’m so grateful to share this journey with you.
+      </p>
+      <p>
+        Always yours,<br>
+        Brian 🌹
+      </p>
+    </div>
+  </section>
+
+  <script>
+    // Show popup when checkbox is ticked
+    document.getElementById('valentineBox').addEventListener('change', function() {
+      if (this.checked) {
+        document.getElementById('popup').style.display = 'block';
+      } else {
+        document.getElementById('popup').style.display = 'none';
+      }
+    });
+
+    // Close popup when clicking the X
+    document.getElementById('closePopup').addEventListener('click', function() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('valentineBox').checked = false; // reset checkbox
+    });
+  </script>
+</body>
+</html>
